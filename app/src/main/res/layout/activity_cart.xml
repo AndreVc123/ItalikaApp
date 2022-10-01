@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true">
+
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_arrow_back"
+        android:layout_marginStart="25sp"
+        android:layout_marginTop="30sp"
+        android:padding="5sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100sp"
+        android:src="@mipmap/logo"
+        android:layout_centerHorizontal="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_cardview_25sp"
+        android:layout_marginTop="100sp"
+        android:elevation="30sp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_above="@id/btnSendToBuy">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detalle compra"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:textSize="25sp"
+                android:textColor="@color/colorBlueAccent"
+                android:textStyle="bold"
+                android:layout_marginTop="20sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Datos del comprador"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/colorBlueAccent"
+                android:textStyle="bold"
+                android:layout_marginStart="15sp"
+                android:layout_marginTop="25sp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                app:boxStrokeWidth="0sp"
+                app:hintEnabled="false">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_rectangle_input_gray_white"
+                    android:paddingBottom="5sp"
+                    android:paddingTop="5sp"
+                    android:paddingStart="10sp"
+                    android:textColor="@color/black"
+                    android:drawablePadding="10sp"
+                    android:inputType="textEmailAddress"
+                    app:hintTextColor="#CDCDCD"
+                    android:hint="Correo electrónico"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtNumber"
+                android:layout_width="match_parent"
+                android:layout_height="45sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20sp"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="15sp"
+                app:boxStrokeWidth="0sp"
+                app:hintEnabled="false"
+                android:layout_marginBottom="15sp">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_rectangle_input_gray_white"
+                    android:paddingBottom="5sp"
+                    android:paddingTop="5sp"
+                    android:paddingStart="10sp"
+                    android:textColor="@color/black"
+                    android:drawablePadding="10sp"
+                    android:inputType="phone"
+                    app:hintTextColor="#CDCDCD"
+                    android:hint="Celular"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:layout_marginTop="5sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlueAccent"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10sp"/>
+
+                <TextView
+                    android:id="@+id/txtTotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$225,000"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#747B81"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10sp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10sp"
+                android:layout_marginTop="5sp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Productos"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/colorBlueAccent"
+                    android:textStyle="bold"
+                    android:layout_marginStart="10sp"/>
+
+                <TextView
+                    android:id="@+id/txtNoProducts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="#747B81"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10sp"/>
+            </RelativeLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewProducts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:listitem="@layout/item_cart_product"
+                tools:itemCount="2"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnSendToBuy"
+            android:layout_width="match_parent"
+            android:layout_height="50sp"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_gravity="center"
+            android:layout_marginTop="5sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/bg_rectangle_input_gray_white"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@color/colorBlueAccent"
+            android:textSize="18sp"
+            android:textAllCaps="false"
+            android:layout_marginStart="20sp"
+            android:layout_marginEnd="20sp"
+            android:layout_marginBottom="20sp"
+            android:text="Comprar"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>
